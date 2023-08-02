@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { addGreeting, getGreetings, deleteGreeting, deleteGreetingBylanguage, updatelanguage } from './db.js';
+import { addGreeting, getGreetings, deleteGreeting, updateLangage } from './db.js';
 
 const app = express()
 
@@ -45,22 +45,6 @@ app.post('/api/greetings', async (req, res)=> {
     })
 })
 
-// endpont for update
-app.post('/api/greetings/edt', async (req, res)=> {
-    const language = req.body.language
-    const greeting = req.body.greeting
-    // add language
-    await addGreeting(language, greeting);
-
-
-    res.json({
-        status: 'Success',
-        message: `greeting '${greeting}' added for ${language}`
-
-        // language, 
-        // greeting
-    })  
-})
 
 
 // console.log('start')
